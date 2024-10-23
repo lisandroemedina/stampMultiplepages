@@ -1,0 +1,14 @@
+this.syncAnnotScan();
+var annots = this.getAnnots(this.pageNum);
+
+if (annots) {
+    for (var i = 0; i < annots.length; i++) {
+        var props = annots[i].getProps();
+        for (var j = 0; j < this.numPages; j++) {
+            props.page = j;
+            if (j != this.pageNum) {
+                this.addAnnot(props);
+            }
+        }
+    }
+}
